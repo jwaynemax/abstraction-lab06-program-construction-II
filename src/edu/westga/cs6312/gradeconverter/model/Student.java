@@ -3,8 +3,8 @@ package edu.westga.cs6312.gradeconverter.model;
 /**
  * Defines a student
  * 
- * @author CS6312
- * @version Spring 2023
+ * @author justinmaxwell
+ * @version 3/10/23
  */
 public class Student {
 	private static final String GRADE_OUT_OF_RANGE = "grade must be >= 0 and <= 100";
@@ -21,7 +21,8 @@ public class Student {
 	 * @param grade the students numeric grade (between 0 and 100, inclusive)
 	 */
 	public Student(String name, int grade) {
-
+		this.setName(name);
+		this.setGrade(grade);
 	}
 
 	/**
@@ -39,12 +40,17 @@ public class Student {
 	/**
 	 * Update the grade
 	 * 
-	 * @precondition ?
+	 * @precondition grade must be >= 0 and <= 100
 	 * @postcondition this.grade == gradeUpdate
 	 * 
 	 * @param gradeUpdate
 	 */
 	public void setGrade(int gradeUpdate) {
+		
+		if (gradeUpdate < 0 || gradeUpdate > 100) {
+			throw new IllegalArgumentException("grade must be greater than or equal to 0 and less than or equal to 100 ");
+		}
+	
 		this.grade = gradeUpdate;
 	}
 
@@ -58,6 +64,23 @@ public class Student {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	/**
+	 * Update the name
+	 * 
+	 * @precondition name!=null && !name.isEmpty()
+	 * @postcondition this.name == nameUpdate
+	 * 
+	 * @param nameUpdate
+	 */
+	public void setName(String nameUpdate) {
+		
+		if (nameUpdate == null || nameUpdate.isEmpty()) {
+			throw new IllegalArgumentException("name cannot be null or empty");
+		}
+	
+		this.name = nameUpdate;
 	}
 
 	@Override

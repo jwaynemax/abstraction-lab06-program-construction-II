@@ -7,8 +7,8 @@ import edu.westga.cs6312.gradeconverter.model.Student;
 /**
  * The Class DemoController.
  * 
- * @author CS6312
- * @version Spring 2023
+ * @author justinmaxwell
+ * @version 3/10/23
  */
 public class DemoController {
 

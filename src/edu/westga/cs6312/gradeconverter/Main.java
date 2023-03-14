@@ -7,8 +7,8 @@ import edu.westga.cs6312.gradeconverter.controller.DemoController;
 /**
  * Entry point for the program.
  * 
- * @author CS 6312
- * @version Spring 2023
+ * @author justinmaxwell
+ * @version 3/10/23
  */
 public class Main {
 
