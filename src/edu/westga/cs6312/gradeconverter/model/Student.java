@@ -8,6 +8,7 @@ package edu.westga.cs6312.gradeconverter.model;
  */
 public class Student {
 	private static final String GRADE_OUT_OF_RANGE = "grade must be >= 0 and <= 100";
+	private static final String INVALID_NAME = "name cannot be null or empty";
 	private String name;
 	private int grade;
 
@@ -48,7 +49,7 @@ public class Student {
 	public void setGrade(int gradeUpdate) {
 		
 		if (gradeUpdate < 0 || gradeUpdate > 100) {
-			throw new IllegalArgumentException("grade must be greater than or equal to 0 and less than or equal to 100 ");
+			throw new IllegalArgumentException(GRADE_OUT_OF_RANGE);
 		}
 	
 		this.grade = gradeUpdate;
@@ -77,7 +78,7 @@ public class Student {
 	public void setName(String nameUpdate) {
 		
 		if (nameUpdate == null || nameUpdate.isEmpty()) {
-			throw new IllegalArgumentException("name cannot be null or empty");
+			throw new IllegalArgumentException(INVALID_NAME);
 		}
 	
 		this.name = nameUpdate;
