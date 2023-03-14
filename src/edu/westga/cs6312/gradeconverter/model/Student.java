@@ -25,6 +25,17 @@ public class Student {
 		this.setName(name);
 		this.setGrade(grade);
 	}
+	
+	/**
+	 * 0-param constructor
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 */
+	public Student() {
+		
+	}
 
 	/**
 	 * Returns the Student's grade

@@ -37,14 +37,42 @@ public class DemoController {
 	public void demoReadingInput() {
 
 		Scanner keyboardInput = new Scanner(System.in);
+		Student aStudent = new Student();
+		
+		//student name
+		boolean continueInput = true;
 		System.out.print("Enter a name: ");
-		String name = keyboardInput.nextLine();
-	
+		
+		do {
+			try {
+				String name = keyboardInput.nextLine();
+				aStudent.setName(name);
+				continueInput = false;
+				
+			} catch (IllegalArgumentException ex) {
+				System.out.println("Name cannot be null. Try again.");
+				keyboardInput.nextLine();
+			}
+		} while (continueInput);
+		
+		//student grade	
+		continueInput = true;
 		System.out.print("Enter a number: ");
-		String gradeInput = keyboardInput.next();
-		int grade = Integer.parseInt(gradeInput);
+		do {
+			try {
+				String gradeInput = keyboardInput.next();
+				int grade = Integer.parseInt(gradeInput);
+				aStudent.setGrade(grade);
+				continueInput = false;
+				
+			} catch (IllegalArgumentException ex) {
+				System.out.println("grade must be >= 0 and <= 100. Try again.");
+				keyboardInput.nextLine();
+			}
+			
+		} while (continueInput);
 
-		Student aStudent = new Student(name, grade);
+//		Student aStudent = new Student(name, grade);
 		System.out.println(aStudent);
 
 		keyboardInput.close();
