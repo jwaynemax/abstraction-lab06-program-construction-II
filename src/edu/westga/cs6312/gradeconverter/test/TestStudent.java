@@ -14,7 +14,7 @@ class TestStudent {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		this.myStudent = new Student("John", 95);
+		this.myStudent = new Student("John", 95, 1996, 6, 7);
 	}
 
 	@AfterEach
@@ -37,7 +37,7 @@ class TestStudent {
 	@Test
 	void testInvalidGrade() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			this.myStudent = new Student("John", -4);
+			this.myStudent = new Student("John", -4, 1996, 6, 7);
 		});
 
 	}
@@ -45,7 +45,7 @@ class TestStudent {
 	@Test
 	void testInvalidName() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			this.myStudent = new Student("", 40);
+			this.myStudent = new Student("", 40, 1996, 6, 7);
 		});
 
 	}
@@ -53,15 +53,39 @@ class TestStudent {
 	@Test
 	void testNullName() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			this.myStudent = new Student(null, 40);
+			this.myStudent = new Student(null, 40, 1996, 6, 7);
 		});
 
 	}
 	
 	@Test
-	void testGraterThanGrade() {
+	void testGreaterThanGrade() {
 		assertThrows(IllegalArgumentException.class, () -> {
-			this.myStudent = new Student("John", 200);
+			this.myStudent = new Student("John", 200, 1996, 6, 7);
+		});
+
+	}
+	
+	@Test
+	void testInvalidYear() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			this.myStudent = new Student("John", 20, 1900, 6, 7);
+		});
+
+	}
+	
+	@Test
+	void testInvalidMonth() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			this.myStudent = new Student("John", 20, 1996, 13, 7);
+		});
+
+	}
+	
+	@Test
+	void testInvalidDate() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			this.myStudent = new Student("John", 20, 1996, 9, 133);
 		});
 
 	}
